@@ -3,14 +3,14 @@ import { formAction } from "./routes/LoginAction";
 import { createBrowserRouter } from "react-router";
 import Profile from "./routes/Profile";
 import Feed from "./routes/Feed";
-import App from "./App";
 import { userLoader } from "./routes/userLoader";
+import Body from "./routes/Body";
+import ProtectedLayout from "./routes/ProtectedLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
-    loader: userLoader,
+    Component: Body,
     children: [
       { index: true, Component: () => <div>Home</div> },
       {
@@ -19,13 +19,19 @@ const router = createBrowserRouter([
         action: formAction,
       },
       {
+        Component: ProtectedLayout,
+        loader: userLoader,
+        children:[
+      {
         path: "profile",
-        Component: Profile,
+        Component: Profile
       },
       {
         path: "feed",
-        Component: Feed,
+        Component: Feed
       },
+    ]
+    }
     ],
   },
 ]);

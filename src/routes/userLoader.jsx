@@ -1,4 +1,5 @@
 // src/utils/userLoader.js
+import { redirect } from "react-router";
 import store from "../utils/store";
 import { setUser } from "../utils/userSlice";
 
@@ -9,19 +10,23 @@ export const userLoader = async () => {
   if (state.user) return null;
 
   // 2. If not, fetch from API
-  try {
-    const res = await fetch("http://localhost:7777/profile", {
-      method: "GET",
-      credentials: "include", // Sends the cookie
-    });
+  const res = await fetch("http://localhost:7777/profile", {
+    method: "GET",
+    credentials: "include", // Sends the cookie
+  });
 
-    if (res.ok) {
-      const user = await res.json();
-      store.dispatch(setUser(user));
-      return null;
-    }
-  } catch (err) {
-    return err;
+  console.log(res);
+
+  if (res.status === 401) {
+    return redirect("/login");
   }
+
+  console.log(res);
+  console.log(res.status);
+  if (!res.ok) {
+    throw new Error("Invalid Token");
+  }
+  const user = await res.json();
+  store.dispatch(setUser(user));
   return null;
 };
