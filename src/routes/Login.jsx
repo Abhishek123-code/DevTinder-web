@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Form, useNavigate } from "react-router";
+import { Form, useActionData, useNavigate } from "react-router";
 
 const Login = () => {
   const user = useSelector((store) => store.user);
   const navigate = useNavigate();
+  const errorData = useActionData();
   useEffect(() => {
     // If user exists in Redux, kick them to Feed
     if (user) {
@@ -24,6 +25,9 @@ const Login = () => {
               <legend className="fieldset-legend">Password</legend>
               <input type="password" name="password" className="input" />
             </fieldset>
+            <p className="text-red-500 text-sm pt-1 pl-1.5">
+              {errorData?.error}
+            </p>
             <div className="card-actions justify-center mt-3">
               <button className="btn btn-primary">Login</button>
             </div>

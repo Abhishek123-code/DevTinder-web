@@ -1,4 +1,4 @@
-import { redirect } from "react-router";
+import { redirect} from "react-router";
 import store from "../utils/store";
 import { setUser } from "../utils/userSlice";
 
@@ -22,7 +22,9 @@ export const formAction = async ({ request }) => {
     });
 
     if (!res.ok) {
-      return console.log("error");
+      const errorMessage = await res.text();
+      return { error: errorMessage };
+      // return console.log("error", error);
     }
 
     const user = await res.json();
@@ -31,6 +33,6 @@ export const formAction = async ({ request }) => {
 
     return redirect("/feed");
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 };

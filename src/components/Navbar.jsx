@@ -1,8 +1,22 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import { BASE_URL } from "../utils/constants";
+import { deleteUser } from "../utils/userSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    fetch(BASE_URL + "/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    dispatch(deleteUser());
+    return navigate("/login");
+  };
 
   return (
     <div className="navbar bg-base-300 shadow-sm">
@@ -41,7 +55,7 @@ const Navbar = () => {
                 <a>Settings</a>
               </li>
               <li>
-                <a>Logout</a>
+                <a onClick={logout}>Logout</a>
               </li>
             </ul>
           </div>
