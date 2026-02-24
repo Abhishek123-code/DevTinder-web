@@ -1,4 +1,4 @@
-import { redirect} from "react-router";
+import { redirect } from "react-router";
 import store from "../utils/store";
 import { setUser } from "../utils/userSlice";
 
@@ -24,11 +24,9 @@ export const formAction = async ({ request }) => {
     if (!res.ok) {
       const errorMessage = await res.text();
       return { error: errorMessage };
-      // return console.log("error", error);
     }
 
     const user = await res.json();
-    console.log(user);
     store.dispatch(setUser(user));
 
     return redirect("/feed");

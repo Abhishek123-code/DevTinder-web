@@ -15,14 +15,9 @@ export const userLoader = async () => {
     credentials: "include", // Sends the cookie
   });
 
-  console.log(res);
-
   if (res.status === 401) {
     return redirect("/login");
   }
-
-  console.log(res);
-  console.log(res.status);
   if (!res.ok) {
     throw new Error("Invalid Token");
   }
