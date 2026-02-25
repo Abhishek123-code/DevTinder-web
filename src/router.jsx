@@ -7,6 +7,7 @@ import Body from "./routes/Body";
 import ProtectedLayout from "./routes/ProtectedLayout";
 import { feedLoader } from "./routes/feedLoader";
 import Feed from "./routes/Feed";
+import { EditAction } from "./routes/EditAction";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
           {
             path: "profile",
             Component: Profile,
+            action: EditAction,
           },
           {
             path: "feed",

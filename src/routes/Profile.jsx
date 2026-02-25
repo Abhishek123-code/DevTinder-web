@@ -1,5 +1,11 @@
+import ProfileEdit from "../components/ProfileEdit";
+
 const Profile = () => {
-  return <div>Profle</div>;
+  return (
+    <div>
+      <ProfileEdit />
+    </div>
+  );
 };
 
 export default Profile;
