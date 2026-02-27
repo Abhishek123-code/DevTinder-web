@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import UserCard from "../components/UserCard";
+import UserCard from "../../components/UserCard";
 
 const Feed = () => {
   const feedData = useSelector((store) => store.feed);

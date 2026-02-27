@@ -1,4 +1,4 @@
-import { BASE_URL } from "../utils/constants";
+import { BASE_URL } from "../../utils/constants";
 
 export const requestAction = async ({ request }) => {
   const formData = await request.formData();

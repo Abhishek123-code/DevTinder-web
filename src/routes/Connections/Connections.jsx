@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import ConnectionCard from "../components/ConnectionCard";
+import ConnectionCard from "../../components/ConnectionCard";
 
 const Connections = () => {
   const connectionData = useLoaderData();

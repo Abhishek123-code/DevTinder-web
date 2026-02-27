@@ -1,18 +1,18 @@
-import Login from "./routes/Login";
-import { formAction } from "./routes/LoginAction";
+import Login from "./routes/Login/Login";
+import { formAction } from "./routes/Login/LoginAction";
 import { createBrowserRouter } from "react-router";
-import Profile from "./routes/Profile";
 import { userLoader } from "./routes/userLoader";
 import Body from "./routes/Body";
 import ProtectedLayout from "./routes/ProtectedLayout";
-import { feedLoader } from "./routes/feedLoader";
-import Feed from "./routes/Feed";
-import { EditAction } from "./routes/EditAction";
-import Connections from "./routes/Connections";
-import Request from "./routes/Request";
-import { connectionLoader } from "./routes/connectionLoader";
-import { requestLoader } from "./routes/requestLoader";
-import { requestAction } from "./routes/requestAction";
+import Feed from "./routes/Feed/Feed";
+import { feedLoader } from "./routes/Feed/feedLoader";
+import Profile from "./routes/Profile/Profile";
+import { EditAction } from "./routes/Profile/EditAction";
+import Connections from "./routes/Connections/Connections";
+import { connectionLoader } from "./routes/Connections/connectionLoader";
+import Request from "./routes/Requests/Request";
+import { requestAction } from "./routes/Requests/requestAction";
+import { requestLoader } from "./routes/Requests/requestLoader";
 
 const router = createBrowserRouter([
   {

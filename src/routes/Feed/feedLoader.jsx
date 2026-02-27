@@ -1,6 +1,6 @@
-import { BASE_URL } from "../utils/constants";
-import { setFeed } from "../utils/feedSlice";
-import store from "../utils/store";
+import { BASE_URL } from "../../utils/constants";
+import { setFeed } from "../../utils/feedSlice";
+import store from "../../utils/store";
 
 export const feedLoader = async () => {
   try {

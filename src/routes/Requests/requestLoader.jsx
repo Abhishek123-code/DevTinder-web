@@ -1,8 +1,8 @@
-import { BASE_URL } from "../utils/constants";
+import { BASE_URL } from "../../utils/constants";
 
-export const connectionLoader = async () => {
+export const requestLoader = async () => {
   try {
-    const res = await fetch(BASE_URL + "/user/requests/connection", {
+    const res = await fetch(BASE_URL + "/user/requests/received", {
       method: "GET",
       credentials: "include",
     });
@@ -12,8 +12,8 @@ export const connectionLoader = async () => {
       return { error: errorMessage };
     }
 
-    const connections = await res.json();
-    return connections.data;
+    const requests = await res.json();
+    return requests.data;
   } catch (Err) {
     return { error: Err.message };
   }

@@ -1,6 +1,6 @@
-import { BASE_URL } from "../utils/constants";
-import store from "../utils/store";
-import { setUser } from "../utils/userSlice";
+import { BASE_URL } from "../../utils/constants";
+import store from "../../utils/store";
+import { setUser } from "../../utils/userSlice";
 
 export const EditAction = async ({ request }) => {
   const formData = await request.formData();

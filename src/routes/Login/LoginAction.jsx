@@ -1,6 +1,6 @@
 import { redirect } from "react-router";
-import store from "../utils/store";
-import { setUser } from "../utils/userSlice";
+import store from "../../utils/store";
+import { setUser } from "../../utils/userSlice";
 
 // c:\Users\ABHISHEK OJHA\Projects\DevTinder-web\src\routes\loginAction.js
 export const formAction = async ({ request }) => {

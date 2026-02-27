@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router";
-import RequestCard from "../components/RequestCard";
+import RequestCard from "../../components/RequestCard";
 
 const Request = () => {
   const requestData = useLoaderData();
