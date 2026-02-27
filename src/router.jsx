@@ -8,6 +8,11 @@ import ProtectedLayout from "./routes/ProtectedLayout";
 import { feedLoader } from "./routes/feedLoader";
 import Feed from "./routes/Feed";
 import { EditAction } from "./routes/EditAction";
+import Connections from "./routes/Connections";
+import Request from "./routes/Request";
+import { connectionLoader } from "./routes/connectionLoader";
+import { requestLoader } from "./routes/requestLoader";
+import { requestAction } from "./routes/requestAction";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +38,17 @@ const router = createBrowserRouter([
             path: "feed",
             Component: Feed,
             loader: feedLoader,
+          },
+          {
+            path: "connections",
+            Component: Connections,
+            loader: connectionLoader,
+          },
+          {
+            path: "Requests",
+            Component: Request,
+            action: requestAction,
+            loader: requestLoader,
           },
         ],
       },
