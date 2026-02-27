@@ -13,6 +13,7 @@ import { connectionLoader } from "./routes/Connections/connectionLoader";
 import Request from "./routes/Requests/Request";
 import { requestAction } from "./routes/Requests/requestAction";
 import { requestLoader } from "./routes/Requests/requestLoader";
+import { feedAction } from "./routes/Feed/feedAction";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
             path: "feed",
             Component: Feed,
             loader: feedLoader,
+            action: feedAction,
           },
           {
             path: "connections",

@@ -18,7 +18,8 @@ export const feedLoader = async () => {
       // return console.log("error", error);
     }
     const feed = await res.json();
-    store.dispatch(setFeed(feed));
+    store.dispatch(setFeed(feed.data));
+    console.log(feed);
   } catch (err) {
     console.log(err.message);
   }

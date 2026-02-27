@@ -1,6 +1,16 @@
+import { Form } from "react-router";
+
 const UserCard = ({ feedData }) => {
-  const { firstName, lastName, PhotoURL, description, skills, age, gender } =
-    feedData;
+  const {
+    _id,
+    firstName,
+    lastName,
+    PhotoURL,
+    description,
+    skills,
+    age,
+    gender,
+  } = feedData;
   return (
     <div className="card bg-base-300 w-96 shadow-xl rounded-2xl">
       <figure className="h-80">
@@ -24,10 +34,19 @@ const UserCard = ({ feedData }) => {
             </div>
           ))}
         </div>
-        <div className="card-actions justify-center my-4">
-          <button className="btn btn-primary">Ignore</button>
-          <button className="btn btn-secondary">Interested</button>
-        </div>
+        <Form method="post" className="card-actions justify-center my-4">
+          <input type="hidden" name="userId" value={_id} />
+          <button className="btn btn-primary" name="status" value="ignored">
+            Ignore
+          </button>
+          <button
+            className="btn btn-secondary"
+            name="status"
+            value="interested"
+          >
+            Interested
+          </button>
+        </Form>
       </div>
     </div>
   );
