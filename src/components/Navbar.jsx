@@ -30,7 +30,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex-1">
         <Link
-          to="/feed"
+          to={user ? "/feed" : "/"}
           className="text-2xl font-extrabold tracking-wide hover:opacity-80 transition"
         >
           Dev<span className="text-primary">Connect</span>
