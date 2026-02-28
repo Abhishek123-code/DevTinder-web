@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Links, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { BASE_URL } from "../utils/constants";
 import { deleteUser } from "../utils/userSlice";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const logout = async () => {
-    fetch(BASE_URL + "/logout", {
+    await fetch(BASE_URL + "/logout", {
       method: "POST",
       credentials: "include",
     });
@@ -19,43 +19,81 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-sm">
+    <div
+      className="navbar 
+      bg-base-300/60 
+      backdrop-blur-md 
+      border-b border-white/10 
+      px-6 
+      sticky top-0 z-50"
+    >
+      {/* Logo */}
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">
-          DevTinder
+        <Link
+          to="/feed"
+          className="text-2xl font-extrabold tracking-wide hover:opacity-80 transition"
+        >
+          Dev<span className="text-primary">Connect</span>
         </Link>
       </div>
+
+      {/* Right Side */}
       {user && (
-        <div className="flex gap-2 items-center">
-          <div className="">Welcome {user.firstName}</div>
-          <div className="dropdown dropdown-end mx-5">
+        <div className="flex items-center gap-4">
+          {/* Welcome text */}
+          <div className="text-sm opacity-80 hidden sm:block">
+            Welcome{" "}
+            <span className="font-medium capitalize">{user.firstName}</span>
+          </div>
+
+          {/* Avatar Dropdown */}
+          <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="w-10 h-10 rounded-full overflow-hidden 
+              border border-white/10 
+              hover:scale-105 transition cursor-pointer"
             >
-              <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user.PhotoURL} />
-              </div>
+              <img
+                alt="profile"
+                src={user.PhotoURL}
+                className="w-full h-full object-cover"
+              />
             </div>
+
             <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              tabIndex={0}
+              className="menu menu-sm dropdown-content 
+              mt-3 w-52 p-2 
+              bg-base-200/90 
+              backdrop-blur-md 
+              rounded-2xl 
+              border border-white/10 
+              shadow-2xl"
             >
               <li>
-                <Link to="/profile" className="justify-between">
+                <Link to="/profile" className="rounded-xl">
                   Profile
-                  <span className="badge">New</span>
                 </Link>
               </li>
+
               <li>
-                <Link to="/connections">Connections</Link>
+                <Link to="/connections" className="rounded-xl">
+                  Connections
+                </Link>
               </li>
+
               <li>
-                <Link to="/requests">Requests</Link>
+                <Link to="/requests" className="rounded-xl">
+                  Requests
+                </Link>
               </li>
+
               <li>
-                <a onClick={logout}>Logout</a>
+                <button onClick={logout} className="text-error rounded-xl">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

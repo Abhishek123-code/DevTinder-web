@@ -14,17 +14,21 @@ import Request from "./routes/Requests/Request";
 import { requestAction } from "./routes/Requests/requestAction";
 import { requestLoader } from "./routes/Requests/requestLoader";
 import { feedAction } from "./routes/Feed/feedAction";
+import { loginLoader } from "./routes/Login/loginLoader";
+import Home from "./routes/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Body,
+
     children: [
-      { index: true, Component: () => <div>Home</div> },
+      { index: true, Component: Home },
       {
         path: "login",
         Component: Login,
         action: formAction,
+        loader: loginLoader,
       },
       {
         Component: ProtectedLayout,

@@ -2,7 +2,7 @@ import ProfileEdit from "../../components/ProfileEdit";
 
 const Profile = () => {
   return (
-    <div>
+    <div className="min-h-screen pb-24">
       <ProfileEdit />
     </div>
   );

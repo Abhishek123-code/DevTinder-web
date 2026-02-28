@@ -1,4 +1,6 @@
 import { BASE_URL } from "../../utils/constants";
+import { removeFromFeed } from "../../utils/feedSlice";
+import store from "../../utils/store";
 
 export const feedAction = async ({ request }) => {
   const formData = await request.formData();
@@ -19,6 +21,8 @@ export const feedAction = async ({ request }) => {
 
     const data = await res.json();
     console.log(data);
+    console.log(data.data.toUserId);
+    store.dispatch(removeFromFeed(data.data.toUserId));
   } catch (err) {
     return { error: err.message };
   }

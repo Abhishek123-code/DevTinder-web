@@ -9,7 +9,7 @@ const Request = () => {
     <div>
       <div className="flex flex-col items-center justify-center my-10 gap-4">
         <h2 className="card-title text-2xl ">Requests</h2>
-        {requestData.lenght > 0 ? (
+        {requestData.length > 0 ? (
           requestData.map((request) => (
             <RequestCard
               key={request._id}
