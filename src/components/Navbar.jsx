@@ -15,7 +15,7 @@ const Navbar = () => {
     });
 
     dispatch(deleteUser());
-    return navigate("/login");
+    return navigate("/");
   };
 
   return (

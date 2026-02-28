@@ -11,9 +11,9 @@ const ProfileEdit = () => {
   const [lastName, setLastName] = useState(user.lastName);
   const [PhotoURL, setPhotoURL] = useState(user.PhotoURL);
   const [age, setAge] = useState(user.age);
-  const [gender, setGender] = useState(user.gender);
+  const [gender, setGender] = useState(user.gender || "");
   const [description, setDescription] = useState(user.description);
-  const [skills, setSkills] = useState(user.skills.join(", "));
+  const [skills, setSkills] = useState(user.skills?.join(", "));
 
   const [showToast, setShowToast] = useState(false);
 
