@@ -76,6 +76,8 @@ const UserCard = ({ feedData }) => {
 
   // --- Event Handlers ---
   const handlePointerDown = (e) => {
+    if (e.target.closest("button")) return;
+
     setIsDragging(true);
     startXRef.current = e.clientX;
     e.currentTarget.setPointerCapture(e.pointerId);

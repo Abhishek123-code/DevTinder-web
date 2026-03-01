@@ -1,15 +1,35 @@
+import { Link } from "react-router";
+
 const Footer = () => {
   return (
-    <footer className="flex justify-between items-center px-6 py-3 bg-base-300/60 backdrop-blur-md border-t border-white/10 text-neutral-content fixed bottom-0 w-full z-50">
+    <footer className="flex flex-col sm:flex-row justify-between items-center px-6 py-3 bg-base-300/60 backdrop-blur-md border-t border-white/10 text-neutral-content fixed bottom-0 w-full z-50 gap-3 sm:gap-0">
       {/* Left Side: Branding & Copyright */}
-      <div className="flex items-center gap-3">
-        <span className="text-lg font-bold tracking-wider">
-          Dev<span className="text-primary">Connect</span>
-        </span>
-        <span className="text-sm opacity-50 hidden sm:inline-block">|</span>
-        <p className="text-xs opacity-70 mt-0.5">
-          © {new Date().getFullYear()} - All rights reserved
-        </p>
+      <div className="flex flex-col sm:flex-row items-center gap-3">
+        <div className="flex items-center gap-3">
+          <span className="text-lg font-bold tracking-wider">
+            Dev<span className="text-primary">Connect</span>
+          </span>
+          <span className="text-sm opacity-50 hidden sm:inline-block">|</span>
+          <p className="text-xs opacity-70 mt-0.5">
+            © {new Date().getFullYear()} - All rights reserved
+          </p>
+        </div>
+
+        {/* Compliance Links for Razorpay */}
+        <div className="flex flex-wrap justify-center gap-3 text-[10px] sm:text-xs opacity-70 mt-1 sm:mt-0 sm:ml-4">
+          <Link to="/terms" className="hover:text-primary transition-colors">
+            Terms
+          </Link>
+          <Link to="/privacy" className="hover:text-primary transition-colors">
+            Privacy
+          </Link>
+          <Link to="/refund" className="hover:text-primary transition-colors">
+            Refunds
+          </Link>
+          <Link to="/contact" className="hover:text-primary transition-colors">
+            Contact
+          </Link>
+        </div>
       </div>
 
       {/* Right Side: Social Icons */}

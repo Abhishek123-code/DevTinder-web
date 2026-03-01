@@ -17,6 +17,12 @@ import { feedAction } from "./routes/Feed/feedAction";
 import { loginLoader } from "./routes/Login/loginLoader";
 import Home from "./routes/Home";
 
+// Legal Pages Imports
+import Terms from "./routes/Legal/Terms";
+import Privacy from "./routes/Legal/Privacy";
+import Refund from "./routes/Legal/Refund";
+import Contact from "./routes/Legal/Contact";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +36,11 @@ const router = createBrowserRouter([
         action: formAction,
         loader: loginLoader,
       },
+      // Public Legal Routes
+      { path: "terms", Component: Terms },
+      { path: "privacy", Component: Privacy },
+      { path: "refund", Component: Refund },
+      { path: "contact", Component: Contact },
       {
         Component: ProtectedLayout,
         loader: userLoader,
