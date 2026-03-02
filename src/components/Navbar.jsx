@@ -79,6 +79,11 @@ const Navbar = () => {
               </li>
 
               <li>
+                <Link to="/premium" className="rounded-xl">
+                  Premium
+                </Link>
+              </li>
+              <li>
                 <Link to="/connections" className="rounded-xl">
                   Connections
                 </Link>

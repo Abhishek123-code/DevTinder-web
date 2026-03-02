@@ -22,6 +22,8 @@ import Terms from "./routes/Legal/Terms";
 import Privacy from "./routes/Legal/Privacy";
 import Refund from "./routes/Legal/Refund";
 import Contact from "./routes/Legal/Contact";
+import Premium from "./routes/Premium/Premium";
+import { premiumAction } from "./routes/Premium/premiumAction";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,11 @@ const router = createBrowserRouter([
             Component: Request,
             action: requestAction,
             loader: requestLoader,
+          },
+          {
+            path: "premium",
+            Component: Premium,
+            action: premiumAction,
           },
         ],
       },
