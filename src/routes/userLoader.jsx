@@ -2,6 +2,7 @@
 import { redirect } from "react-router";
 import store from "../utils/store";
 import { setUser } from "../utils/userSlice";
+import { BASE_URL } from "../utils/constants";
 
 export const userLoader = async () => {
   const state = store.getState();
@@ -10,7 +11,7 @@ export const userLoader = async () => {
   if (state.user) return null;
 
   // 2. If not, fetch from API
-  const res = await fetch("http://localhost:7777/profile", {
+  const res = await fetch(BASE_URL + "/profile", {
     method: "GET",
     credentials: "include", // Sends the cookie
   });
