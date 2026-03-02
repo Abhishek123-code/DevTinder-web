@@ -25,7 +25,7 @@ import Contact from "./routes/Legal/Contact";
 import Premium from "./routes/Premium/Premium";
 import { premiumAction } from "./routes/Premium/premiumAction";
 import Chat from "./routes/chat/Chat";
-import { ChatLoader } from "./routes/chat/chatLoader";
+import { chatLoader } from "./routes/chat/chatLoader";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
           {
             path: "/chat/:targetUserId",
             Component: Chat,
-            loader: ChatLoader,
+            loader: chatLoader,
           },
         ],
       },

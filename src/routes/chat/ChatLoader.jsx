@@ -1,6 +1,6 @@
 import { BASE_URL } from "../../utils/constants";
 
-export const ChatLoader = async ({ params }) => {
+export const chatLoader = async ({ params }) => {
   const { targetUserId } = params;
 
   const res = await fetch(BASE_URL + "/chat/" + targetUserId, {
