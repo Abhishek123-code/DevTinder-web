@@ -1,5 +1,7 @@
+import { Link } from "react-router";
+
 const ConnectionCard = ({ connections }) => {
-  const { firstName, lastName, age, gender, description, PhotoURL } =
+  const { _id, firstName, lastName, age, gender, description, PhotoURL } =
     connections;
   return (
     <div className="flex items-center gap-5 p-4 rounded-2xl bg-base-300/40 border border-white/5 hover:bg-base-300/60 hover:border-white/10 transition-all duration-300 w-full max-w-2xl group shadow-sm hover:shadow-md">
@@ -30,9 +32,13 @@ const ConnectionCard = ({ connections }) => {
           {description}
         </p>
       </div>
-
+      <Link to={`/chat/${connections._id}`}>
+        <div className="btn btn-success rounded-full hover:bg-green-300">
+          Chat
+        </div>
+      </Link>
       {/* Visual cue that this is an established connection */}
-      <div className="text-gray-500 group-hover:text-primary transition-colors pr-2">
+      {/* <div className="text-gray-500 group-hover:text-primary transition-colors pr-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -41,13 +47,13 @@ const ConnectionCard = ({ connections }) => {
           stroke="currentColor"
           className="w-5 h-5"
         >
-          {/* <path
+          <path
             strokeLinecap="round"
             strokeLinejoin="round"
             d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          /> */}
+          />
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 };

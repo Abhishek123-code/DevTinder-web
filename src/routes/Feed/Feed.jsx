@@ -3,8 +3,6 @@ import UserCard from "../../components/UserCard";
 
 const Feed = () => {
   const feedData = useSelector((store) => store.feed);
-  console.log(feedData);
-  console.log(feedData.length);
 
   return (
     <div className="flex justify-center my-10">

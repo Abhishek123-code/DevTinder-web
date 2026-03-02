@@ -4,7 +4,6 @@ import RequestCard from "../../components/RequestCard";
 const Request = () => {
   const requestData = useLoaderData();
 
-  console.log(requestData);
   return (
     <div>
       <div className="flex flex-col items-center justify-center my-10 gap-4">

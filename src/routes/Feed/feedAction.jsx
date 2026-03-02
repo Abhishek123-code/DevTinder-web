@@ -20,8 +20,6 @@ export const feedAction = async ({ request }) => {
     }
 
     const data = await res.json();
-    console.log(data);
-    console.log(data.data.toUserId);
     store.dispatch(removeFromFeed(data.data.toUserId));
   } catch (err) {
     return { error: err.message };

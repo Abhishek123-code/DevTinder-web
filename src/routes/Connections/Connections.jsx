@@ -3,7 +3,6 @@ import ConnectionCard from "../../components/ConnectionCard";
 
 const Connections = () => {
   const connectionData = useLoaderData();
-  console.log(connectionData);
   return (
     <div className="flex flex-col items-center justify-center my-10 gap-4">
       <h2 className="card-title text-2xl ">Connections</h2>
