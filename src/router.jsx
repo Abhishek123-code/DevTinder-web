@@ -24,8 +24,8 @@ import Refund from "./routes/Legal/Refund";
 import Contact from "./routes/Legal/Contact";
 import Premium from "./routes/Premium/Premium";
 import { premiumAction } from "./routes/Premium/premiumAction";
-import Chat from "./routes/chat/chat";
 import { ChatLoader } from "./routes/chat/chatLoader";
+import Chat from "./routes/chat/Chat";
 
 const router = createBrowserRouter([
   {
