@@ -1,6 +1,23 @@
+import { useSelector } from "react-redux";
 import { Form } from "react-router";
 
 const Premium = () => {
+  const user = useSelector((store) => store.user);
+
+  if (user?.isPremium) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-black mb-4 text-primary">
+          You are a Premium Member! 🚀
+        </h1>
+        <p className="text-lg text-base-content/70 mb-8">
+          Enjoy your unlimited connection requests and verified blue tick on
+          DevConnect.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center py-16 px-4">
       {/* --- Page Header --- */}
