@@ -334,7 +334,7 @@ const ProfileEdit = () => {
       </div>
 
       {/* Live Preview UserCard */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center pointer-events-none">
         <UserCard
           feedData={{
             firstName,
